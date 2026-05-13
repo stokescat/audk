@@ -1,0 +1,21 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = EfizzerExecutor
+  FILE_GUID                      = A7F1E234-5B6C-4D8E-91A2-F3B4C5D6E7F8
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+  SUPPORTED_ARCHITECTURES        = X64
+
+[Sources]
+  EfizzerExecutor.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  EfizzerPkg/EfizzerPkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiLib
+  UefiBootServicesTableLib
+  EfizzerLib

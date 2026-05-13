@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION  = 0x00010005
+  PACKAGE_NAME       = EfizzerPkg
+  PACKAGE_GUID       = 347166C9-F1A1-DD40-B7B0-1F0D1D13F9D4
+  PACKAGE_VERSION    = 0.1
+
+[Includes]
+  Include
+
+[LibraryClasses]
+  EfizzerLib|Include/Library/EfizzerLib.h
