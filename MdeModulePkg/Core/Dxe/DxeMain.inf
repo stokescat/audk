@@ -73,6 +73,7 @@
   MdeModulePkg/MdeModulePkg.dec
   UefiCpuPkg/UefiCpuPkg.dec
   OvmfPkg/OvmfPkg.dec
+  EfizzerPkg/EfizzerPkg.dec
 
 [LibraryClasses]
   BaseMemoryLib
@@ -98,6 +99,7 @@
   ImagePropertiesRecordLib
   OrderedCollectionLib
   CpuArchLib
+  EfizzerLib
 
 [Guids]
   gEfiEventMemoryMapChangeGuid                  ## PRODUCES             ## Event

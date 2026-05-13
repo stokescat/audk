@@ -8,6 +8,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 #include "DxeMain.h"
 #include <Library/BaseEfiMemWrapper.h>
+#include <Library/EfizzerLib.h>
 
 //
 // DXE Core Global Variables for Protocols from PEI
@@ -279,10 +280,22 @@ DxeMain (
   MemoryProfileInit (HobStart, &ImageContext);
 
   //
+  // Сообщим efizzer о том, что DxeCore загружен
+  //
+EFIZZER_EMIT_MODULE_EVENT(gDxeCoreFileName, 
+                          gDxeCoreLoadedImage->ImageSize,
+                          gDxeCoreLoadedImage->ImageBase)
+
+  //
   // Initialize the Global Coherency Domain Services
   //
   Status = CoreInitializeGcdServices (&HobStart, MemoryBaseAddress, MemoryLength);
   ASSERT_EFI_ERROR (Status);
+
+  //
+  // Защитим страницу памяти efizzer device от использования
+  //
+EFIZZER_PROTECT_DEVICE()
 
   //
   // Allocate the EFI System Table and EFI Runtime Service Table from EfiRuntimeServicesData

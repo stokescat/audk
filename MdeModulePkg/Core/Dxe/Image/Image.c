@@ -9,6 +9,8 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include "DxeMain.h"
 #include "Image.h"
 
+#include <Library/EfizzerLib.h>
+
 //
 // Module Globals
 //
@@ -900,6 +902,8 @@ CoreUnloadAndCloseImage (
   HandleBuffer      = NULL;
   ProtocolGuidArray = NULL;
 
+EFIZZER_EMIT_MODULE_EVENT_BY_DEVICE_PATH(Image->LoadedImageDevicePath, Image->Info.ImageSize, (CONST VOID*)0)
+
   UnregisterMemoryProfileImage (Image->Info.FilePath, Image->ImageBasePage);
 
   if (Image->PeCoffEmu != NULL) {
@@ -1450,6 +1454,7 @@ CoreLoadImageCommon (
   //
   // Success.  Return the image handle
   //
+EFIZZER_EMIT_MODULE_EVENT_BY_DEVICE_PATH(FilePath, Image->Info.ImageSize, Image->Info.ImageBase)
   *ImageHandle = Image->Handle;
 
 Done:
