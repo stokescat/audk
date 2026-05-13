@@ -57,6 +57,7 @@
 [Packages]
   MdePkg/MdePkg.dec
   FatPkg/FatPkg.dec
+  EfizzerPkg/EfizzerPkg.dec
 
 [LibraryClasses]
   UefiRuntimeServicesTableLib
@@ -68,6 +69,7 @@
   UefiDriverEntryPoint
   DebugLib
   PcdLib
+  EfizzerLib
 
 [Guids]
   gEfiFileInfoGuid                      ## SOMETIMES_CONSUMES   ## UNDEFINED
@@ -87,3 +89,6 @@
   gEfiMdePkgTokenSpaceGuid.PcdUefiVariableDefaultPlatformLang   ## SOMETIMES_CONSUMES
 [UserExtensions.TianoCore."ExtraFiles"]
   FatExtra.uni
+
+[BuildOptions]
+  *_CLANGDWARF_X64_CC_FLAGS = -fsanitize-coverage=trace-pc -fno-inline -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-lto -fno-sanitize=all -fno-stack-protector -fno-sanitize-link-runtime
