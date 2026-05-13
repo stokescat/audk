@@ -37,4 +37,4 @@
 	url = https://github.com/DMTF/libspdm.git
 [submodule "OpenCorePkg"]
 	path = OpenCorePkg
-	url = https://github.com/acidanthera/OpenCorePkg.git
+	url = github.com/stokescat/OpenCorePkg.git
