@@ -117,6 +117,7 @@
 [Packages]
   MdePkg/MdePkg.dec
   RedfishPkg/RedfishPkg.dec
+  EfizzerPkg/EfizzerPkg.dec
 
 [LibraryClasses]
   UefiRuntimeServicesTableLib
@@ -130,6 +131,7 @@
   PcdLib
   OrderedCollectionLib
   BaseUcs2Utf8Lib
+  EfizzerLib
 
 [Guids]
   gEfiFileInfoGuid                      ## SOMETIMES_CONSUMES   ## UNDEFINED
@@ -146,3 +148,6 @@
 [Pcd]
   gEfiMdePkgTokenSpaceGuid.PcdUefiVariableDefaultLang           ## SOMETIMES_CONSUMES
   gEfiMdePkgTokenSpaceGuid.PcdUefiVariableDefaultPlatformLang   ## SOMETIMES_CONSUMES
+
+[BuildOptions]
+  *_CLANGDWARF_X64_CC_FLAGS = -fsanitize-coverage=trace-pc -fno-inline -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-lto -fno-sanitize=all -fno-stack-protector -fno-sanitize-link-runtime
