@@ -375,6 +375,17 @@ INF OvmfPkg/Tcg/TdTcg2Dxe/TdTcg2Dxe.inf
 #
 !include OvmfPkg/Include/Fdf/OvmfTpmDxe.fdf.inc
 
+#
+# Ext4Pkg support
+#
+!include Ext4Pkg/Ext4.fdf.inc
+
+#
+# OpenNtfsDxe
+#
+!include OpenCorePkg/Platform/OpenNtfsDxe/OpenNtfsDxe.fdf.inc
+
+
 !include OvmfPkg/Include/Fdf/ShellDxe.fdf.inc
 !include OvmfPkg/Include/Fdf/MorLock.fdf.inc
 !include OvmfPkg/Include/Fdf/OvmfRngDxe.fdf.inc

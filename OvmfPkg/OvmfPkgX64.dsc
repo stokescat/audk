@@ -138,6 +138,7 @@
 !include MdePkg/MdeLibs.dsc.inc
 
 [LibraryClasses]
+  EfizzerLib|EfizzerPkg/Library/EfizzerLib/EfizzerLib.inf
   SmmRelocationLib|OvmfPkg/Library/SmmRelocationLib/SmmRelocationLib.inf
   PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
   TimerLib|OvmfPkg/Library/AcpiTimerLib/BaseAcpiTimerLib.inf
@@ -1160,6 +1161,16 @@
   # TPM support
   #
 !include OvmfPkg/Include/Dsc/OvmfTpmComponentsDxe.dsc.inc
+
+  #
+  # Ext4Pkg
+  #
+!include Ext4Pkg/Ext4.dsc.inc
+
+  #
+  # OpenNtfsDxe
+  #
+!include OpenCorePkg/Platform/OpenNtfsDxe/OpenNtfsDxe.dsc.inc
 
   #
   # Smbios Measurement support
